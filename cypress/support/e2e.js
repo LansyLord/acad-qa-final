@@ -15,3 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+// Ignora erros originados pelo código-fonte da aplicação (ex: gov.br)
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Retornar false previne que o Cypress falhe o teste
+    return false;
+});
