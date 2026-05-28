@@ -13,9 +13,11 @@ Given('que eu estou na página incial do site', () => {
 
     cy.get('body').then(($body) => {
 
-        if ($body.find('button.reject-all').length > 0) {
-            cy.log('Aviso de cookies encontrado. Rejeitando...');
+        if ($body.find('button.reject-all:visible').length > 0) {
+            cy.log('Aviso de cookies encontrado e visível. Rejeitando...');
             cy.get('button.reject-all').click();
+        } else {
+            cy.log('Aviso de cookies oculto ou ausente. Pulando etapa.');
         }
 
 
